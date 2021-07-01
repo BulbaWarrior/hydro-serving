@@ -73,7 +73,7 @@ jobs:
         if: github.event.inputs.skip_grpc != 'yes'
         uses: aurelien-baudet/workflow-dispatch@v2.1.1
         with:
-          workflow: cd
+          workflow: release
           token: ${{ secrets.HYDRO_SERVING_TOKEN }}
           repo: ${{ github.repository_owner }}/hydro-serving-protos
           inputs: '{"version":"${{ env.VERSION }}", "release":"global"}'
@@ -82,10 +82,10 @@ jobs:
         if: github.event.inputs.skip_sdk != 'yes'
         uses: aurelien-baudet/workflow-dispatch@v2.1.1
         with:
-          workflow: cd
+          workflow: release
           token: ${{ secrets.HYDRO_SERVING_TOKEN }}
           repo: ${{ github.repository_owner }}/hydro-serving-sdk
-          inputs: '{"version":"${{ env.VERSION }}", "release":"global"}' # "grpc_version":"${{ env.VERSION }}"
+          inputs: '{"version":"${{ env.VERSION }}", "release":"global", "grpc_version":"${{ env.VERSION }}"}'
 
   Release_services:
     # template to release the rest of the repos
@@ -98,13 +98,13 @@ jobs:
       
     strategy:
       matrix:
-        service_repo_name: [hydro-serving-gateway] # names of repositories to release
+        service_repo_name: [hydro-serving-gateway, hydro-serving-manager] # names of repositories to release
         
     steps:
       - name: Release latest version of ${{ matrix.service_repo_name }}
         uses: aurelien-baudet/workflow-dispatch@v2.1.1
         with:
-          workflow: cd
+          workflow: release
           token: ${{ secrets.HYDRO_SERVING_TOKEN }}
           repo: ${{ github.repository_owner }}/${{ matrix.service_repo_name }}
           inputs: '{"version":"${{ env.VERSION }}"}'

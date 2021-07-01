@@ -1,9 +1,9 @@
 ui:
   image:
-    full: bulbawarrior/hydro-serving-ui:4.6.0
+    full: bulbawarrior/hydro-serving-ui:4.7.0
 manager:
   image:
-    full: bulbawarrior/serving-manager:6b78e38444449128dda2f809717ee6332d6eb092
+    full: bulbawarrior/serving-manager:4.7.0
   depconfig: |-
     default-deployment-configuration = """
       {
@@ -25,22 +25,22 @@ manager:
     """
 gateway:
   image:
-    full: bulbawarrior/serving-gateway:07d2756556df4d35625940f1bb2f9ff2640e1080
-    full: bulbawarrior/sonar:4.6.0
+    full: bulbawarrior/serving-gateway:4.7.0
+    full: bulbawarrior/sonar:4.7.0
   image:
-    full: bulbawarrior/sonar:4.6.0
+    full: bulbawarrior/sonar:4.7.0
 visualization:
   image:
-    full: bulbawarrior/hydro-visualization:4.6.0
+    full: bulbawarrior/hydro-visualization:4.7.0
 auto-od:
   image:
     full: hydrosphere/auto-od:d9b5700c61844a9748da1d847518e6de367a0309
-    full: bulbawarrior/stat:4.6.0
+    full: bulbawarrior/stat:4.7.0
   image:
-    full: bulbawarrior/stat:4.6.0
+    full: bulbawarrior/stat:4.7.0
 rootcause:
   image:
-    full: bulbawarrior/hydro-root-cause:4.6.0
+    full: bulbawarrior/hydro-root-cause:4.7.0
 postgresql:
   metrics:
     enabled: true

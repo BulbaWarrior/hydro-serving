@@ -25,7 +25,7 @@ manager:
     """
 gateway:
   image:
-    full: bulbawarrior/serving-gateway:4.6.0
+    full: bulbawarrior/serving-gateway:98a4c29c349ebcef6ff7ad5f13fae11144bcc8f4
     full: bulbawarrior/sonar:4.6.0
   image:
     full: bulbawarrior/sonar:4.6.0

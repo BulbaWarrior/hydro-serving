@@ -52,7 +52,7 @@ services:
     depends_on:
       postgres:
         condition: service_started
-    image: bulbawarrior/serving-manager:4.6.0
+    image: bulbawarrior/serving-manager:726e6af16dc349986e1b20e1a728ab55b8c56ae9
     networks:
       extnet: {}
       hydronet: {}

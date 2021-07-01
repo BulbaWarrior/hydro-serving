@@ -59,9 +59,15 @@ jobs:
         if: github.event.inputs.version != ''
         run: echo VERSION=${{ github.event.inputs.version }}
         
+      - name: Set version output
+        id: out
+        run: echo ::set-ouput name=version::$VERSION
+        
   deps:
     needs: [version]
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ jobs.version.steps.out.outputs.version }}
     steps:
       - name: Debug
         run: echo ${{ env.VERSION }}

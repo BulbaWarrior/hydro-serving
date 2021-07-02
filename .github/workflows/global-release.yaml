@@ -107,7 +107,7 @@ jobs:
           workflow: release
           token: ${{ secrets.HYDRO_SERVING_TOKEN }}
           repo: ${{ github.repository_owner }}/${{ matrix.service_repo_name }}
-          inputs: '{"version":"${{ env.VERSION }}"}'
+          inputs: '{"version":"${{ env.VERSION }}", "release":"global", "grpc_version":"${{ env.VERSION }}"}'
        
   Release_serving:
     needs: [version, Release_services]
